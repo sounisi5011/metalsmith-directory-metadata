@@ -1,0 +1,5 @@
+# Change Log
+
+## [Unreleased]
+
+[Unreleased]: https://github.com/sounisi5011/metalsmith-directory-metadata/compare/v0.0.0...HEAD
