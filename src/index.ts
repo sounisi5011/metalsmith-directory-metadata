@@ -57,8 +57,14 @@ export = (
                                 .join('\n'),
                     );
                 }
+
                 const data = firstItem(dirDataList);
-                return [dirname, data && data.dirdata];
+                if (data) {
+                    delete files[data.filename];
+                    return [dirname, data.dirdata];
+                } else {
+                    return [dirname, undefined];
+                }
             }),
         );
 
