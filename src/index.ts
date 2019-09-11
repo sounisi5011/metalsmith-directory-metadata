@@ -10,7 +10,14 @@ import {
     OptionsInterface,
 } from './options';
 import { parser } from './parse';
-import { createPlugin, firstItem, hasProp, isFile, isObject } from './utils';
+import {
+    createPlugin,
+    firstItem,
+    hasProp,
+    isFile,
+    isObject,
+    isReadonlyOrWritableArray,
+} from './utils';
 
 const debug = createDebug(require('../package.json').name);
 const defineDebug = debug.extend('define');
@@ -20,15 +27,19 @@ export = (
 ): Metalsmith.Plugin => {
     return createPlugin(async (files, metalsmith) => {
         const options = await normalizeOptions(files, metalsmith, opts);
+        const { pattern } = options;
 
         const dataListMap = new Map<
             string,
             { filename: string; dirdata: ReturnType<typeof parser> }[]
         >();
-        for (const filename of multimatch(
+        const matchedFilenameList = multimatch(
             Object.keys(files),
-            options.pattern,
-        )) {
+            (Array.isArray as isReadonlyOrWritableArray)(pattern)
+                ? [...pattern]
+                : pattern,
+        );
+        for (const filename of matchedFilenameList) {
             const filedata = files[filename];
             if (!isFile(filedata)) {
                 continue;
