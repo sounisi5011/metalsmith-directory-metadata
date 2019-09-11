@@ -56,7 +56,7 @@ See [Metalsmith CLI] for more details.
 
 ## Javascript Usage
 
-The simplest use is to omit the option. By [default](#options), `metadata.yaml`, `metadata.yml`, `metadata.json`, and `metadata` are used as files that define metadata.
+The simplest use is to omit the option. By [default](#options), the following files are used to define metadata: `metadata.yaml`, `metadata.yml`, `metadata.json`, and `metadata`.
 
 ```js
 const directoryMetadata = require('metalsmith-directory-metadata');
@@ -72,7 +72,7 @@ const directoryMetadata = require('metalsmith-directory-metadata');
 
 metalsmith
   .use(directoryMetadata({
-    pattern: ['**/metadata.{json,yaml,yml}', '**/metadata'],
+    pattern: '**/.metadata',
   }));
 ```
 
