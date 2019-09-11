@@ -1,3 +1,4 @@
+import deepFreeze from 'deep-freeze-strict';
 import Metalsmith from 'metalsmith';
 
 export interface OptionsInterface {
@@ -12,19 +13,21 @@ export interface OptionsGenerator {
     ): Partial<OptionsInterface> | Promise<Partial<OptionsInterface>>;
 }
 
+const defaultOptions: OptionsInterface = deepFreeze({
+    pattern: ['**/metadata.{json,yaml,yml}', '**/metadata'],
+});
+
 export async function normalizeOptions(
     files: Metalsmith.Files,
     metalsmith: Metalsmith,
     opts: Partial<OptionsInterface> | OptionsGenerator,
 ): Promise<OptionsInterface> {
-    const defaultOptions: OptionsInterface = {
-        pattern: ['**/metadata.{json,yaml,yml}', '**/metadata'],
-    };
-
+    const partialOptions: Partial<OptionsInterface> =
+        typeof opts === 'function'
+            ? await opts(files, metalsmith, defaultOptions)
+            : opts;
     return {
         ...defaultOptions,
-        ...(typeof opts === 'function'
-            ? await opts(files, metalsmith, defaultOptions)
-            : opts),
+        ...partialOptions,
     };
 }
