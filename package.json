@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-directory-metadata",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Metalsmith plugin: defines default metadata for files in a directory",
   "keywords": [
     "data",
