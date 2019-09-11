@@ -1,3 +1,4 @@
+import createDebug from 'debug';
 import Metalsmith from 'metalsmith';
 import multimatch from 'multimatch';
 import path from 'path';
@@ -10,6 +11,9 @@ import {
 } from './options';
 import { parser } from './parse';
 import { createPlugin, firstItem, hasProp, isFile, isObject } from './utils';
+
+const debug = createDebug(require('../package.json').name);
+const defineDebug = debug.extend('define');
 
 export = (
     opts: Partial<OptionsInterface> | OptionsGenerator = {},
@@ -30,6 +34,7 @@ export = (
                 continue;
             }
 
+            debug('parsing file: %o', filename);
             const dirdata = parser(filename, filedata);
 
             const dirname = path.normalize(path.dirname(filename));
@@ -42,7 +47,9 @@ export = (
         const dataMap = new Map(
             [...dataListMap].map(([dirname, dirDataList]): [
                 string,
-                (Record<string, unknown> | undefined),
+                (
+                    | { filename: string; dirdata: ReturnType<typeof parser> }
+                    | undefined),
             ] => {
                 if (dirDataList.length > 1) {
                     throw new Error(
@@ -60,11 +67,10 @@ export = (
 
                 const data = firstItem(dirDataList);
                 if (data) {
+                    debug('removing file: %o', data.filename);
                     delete files[data.filename];
-                    return [dirname, data.dirdata];
-                } else {
-                    return [dirname, undefined];
                 }
+                return [dirname, data];
             }),
         );
 
@@ -76,11 +82,21 @@ export = (
             let dirname = path.normalize(filename);
             const searchedDirname = new Set<string>();
             do {
-                const dirdata = dataMap.get(dirname);
-                if (dirdata) {
-                    for (const [prop, value] of Object.entries(dirdata)) {
+                const data = dataMap.get(dirname);
+                if (data) {
+                    debug(
+                        'setting metadata to file: %o <- %o',
+                        filename,
+                        data.filename,
+                    );
+                    for (const [prop, value] of Object.entries(data.dirdata)) {
                         if (!hasProp(filedata, prop)) {
                             (filedata as Record<string, unknown>)[prop] = value;
+                            defineDebug(
+                                'assign property %o to file: %o',
+                                prop,
+                                filename,
+                            );
                         }
                     }
                 }
