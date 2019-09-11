@@ -27,3 +27,16 @@ export function isFile(value: unknown): value is FileInterface {
     }
     return false;
 }
+
+export function createPlugin(
+    callback: (
+        files: Metalsmith.Files,
+        metalsmith: Metalsmith,
+    ) => Promise<void>,
+): Metalsmith.Plugin {
+    return (files, metalsmith, done) => {
+        callback(files, metalsmith)
+            .then(() => done(null, files, metalsmith))
+            .catch(error => done(error, files, metalsmith));
+    };
+}

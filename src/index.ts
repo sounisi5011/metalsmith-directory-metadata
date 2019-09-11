@@ -9,13 +9,13 @@ import {
     OptionsInterface,
 } from './options';
 import { parser } from './parse';
-import { firstItem, hasProp, isFile, isObject } from './utils';
+import { createPlugin, firstItem, hasProp, isFile, isObject } from './utils';
 
 export = (
     opts: Partial<OptionsInterface> | OptionsGenerator = {},
 ): Metalsmith.Plugin => {
-    return (files, metalsmith, done) => {
-        const options = normalizeOptions(files, metalsmith, opts);
+    return createPlugin(async (files, metalsmith) => {
+        const options = await normalizeOptions(files, metalsmith, opts);
 
         const dataListMap = new Map<
             string,
@@ -82,7 +82,5 @@ export = (
                 dirname = path.normalize(path.dirname(dirname));
             } while (!searchedDirname.has(dirname));
         }
-
-        done(null, files, metalsmith);
-    };
+    });
 };
