@@ -56,7 +56,7 @@ See [Metalsmith CLI] for more details.
 
 ## Javascript Usage
 
-The simplest use is to omit the option. By default, `metadata.yaml`, `metadata.yml`, `metadata.json`, and `metadata` are used as files that define metadata.
+The simplest use is to omit the option. By [default](#options), `metadata.yaml`, `metadata.yml`, `metadata.json`, and `metadata` are used as files that define metadata.
 
 ```js
 const directoryMetadata = require('metalsmith-directory-metadata');
@@ -105,7 +105,7 @@ metalsmith
 
 ## Options
 
-The default value ​​for options are defined like this:
+The default value for options are [defined](https://github.com/sounisi5011/metalsmith-directory-metadata/blob/v1.0.0/src/options.ts#L16-L18) like this:
 
 ```js
 {
@@ -121,13 +121,13 @@ Pattern are verified using [multimatch v4.0.0].
 
 [multimatch v4.0.0]: https://www.npmjs.com/package/multimatch/v/4.0.0
 
-Default value:
+Default value ([source](https://github.com/sounisi5011/metalsmith-directory-metadata/blob/v1.0.0/src/options.ts#L17)):
 
 ```js
 ['**/metadata.{json,yaml,yml}', '**/metadata']
 ```
 
-Type definition:
+Type definition ([source](https://github.com/sounisi5011/metalsmith-directory-metadata/blob/v1.0.0/src/options.ts#L5)):
 
 ```ts
 string | string[]
