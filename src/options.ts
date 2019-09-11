@@ -1,7 +1,7 @@
 import Metalsmith from 'metalsmith';
 
 export interface OptionsInterface {
-    pattern: string | string[];
+    readonly pattern: string | ReadonlyArray<string>;
 }
 
 export interface OptionsGenerator {
