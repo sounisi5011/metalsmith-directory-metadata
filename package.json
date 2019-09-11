@@ -72,7 +72,6 @@
     ]
   },
   "dependencies": {
-    "@types/deep-freeze-strict": "1.1.0",
     "@types/metalsmith": "2.3.0",
     "debug": "4.1.1",
     "deep-freeze-strict": "1.1.1",
@@ -82,6 +81,7 @@
   "devDependencies": {
     "@sounisi5011/check-peer-deps": "github:sounisi5011/check-peer-deps",
     "@types/debug": "4.1.5",
+    "@types/deep-freeze-strict": "1.1.0",
     "@types/js-yaml": "3.12.1",
     "@types/lodash.clonedeep": "4.5.6",
     "@types/node": "*",
