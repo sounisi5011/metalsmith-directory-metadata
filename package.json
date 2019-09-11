@@ -72,8 +72,10 @@
     ]
   },
   "dependencies": {
+    "@types/deep-freeze-strict": "1.1.0",
     "@types/metalsmith": "2.3.0",
     "debug": "4.1.1",
+    "deep-freeze-strict": "1.1.1",
     "js-yaml": "3.13.1",
     "multimatch": "4.0.0"
   },
