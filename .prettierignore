@@ -1,0 +1,3 @@
+/test/fixtures/invalid-json/src/**/metadata.json
+/test/fixtures/invalid-yaml/src/**/metadata.yaml
+/test/fixtures/invalid-yaml/src/**/metadata.yml
