@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:readme": "node ./script/readme-generator.js --template ./readme-template.mustache",
     "clean": "del './dist/'",
     "fmt-pkg": "run-s fmt-pkg:prettier fmt-pkg:sort",
     "fmt-pkg:prettier": "prettier-package-json --write ./package.json",
@@ -50,7 +51,7 @@
     "test:ava": "ava",
     "test:check-type-defs-pkgs": "node script/check-type-defs-pkgs.js ./dist/ build",
     "test:peer-deps": "check-peer-deps",
-    "test:readme": "node ./script/readme-generator.js --test"
+    "test:readme": "npm run build:readme -- --test"
   },
   "husky": {
     "hooks": {
@@ -59,7 +60,7 @@
   },
   "lint-staged": {
     "!(README.md)": [
-      "node ./script/readme-generator.js",
+      "npm run build:readme",
       "git add ./README.md"
     ],
     "!(package).json|*.{js,yaml,yml}": [
