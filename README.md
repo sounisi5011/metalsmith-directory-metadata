@@ -4,6 +4,7 @@
 [![GitHub License](https://img.shields.io/github/license/sounisi5011/metalsmith-directory-metadata.svg)][github-license]
 ![](https://img.shields.io/node/v/metalsmith-directory-metadata.svg)
 ![Type Definitions: TypeScript](https://img.shields.io/npm/types/metalsmith-directory-metadata.svg)
+[![bundle size](https://badgen.net/bundlephobia/min/metalsmith-directory-metadata@1.0.0)](https://bundlephobia.com/result?p=metalsmith-directory-metadata@1.0.0)
 [![Dependencies Status](https://david-dm.org/sounisi5011/metalsmith-directory-metadata/status.svg)](https://david-dm.org/sounisi5011/metalsmith-directory-metadata)
 [![Build Status](https://travis-ci.com/sounisi5011/metalsmith-directory-metadata.svg?branch=master)](https://travis-ci.com/sounisi5011/metalsmith-directory-metadata)
 [![Maintainability Status](https://api.codeclimate.com/v1/badges/4dcb19ba4651279775d5/maintainability)](https://codeclimate.com/github/sounisi5011/metalsmith-directory-metadata/maintainability)
