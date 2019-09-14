@@ -2,7 +2,12 @@
 
 ## [Unreleased]
 
+### Documentation
+
+* [#7] - Add BundlePhobia Badge
+
 [Unreleased]: https://github.com/sounisi5011/metalsmith-directory-metadata/compare/v1.0.0...HEAD
+[#7]: https://github.com/sounisi5011/metalsmith-directory-metadata/pull/7
 
 ## [1.0.0] (2019-09-11 UTC)
 
