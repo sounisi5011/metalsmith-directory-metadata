@@ -118,9 +118,9 @@ The default value for options are [defined](https://github.com/sounisi5011/metal
 
 Specifies the Glob pattern that matches the file that defines the directory metadata.  
 Specify a glob expression string or an array of strings as the pattern.  
-Pattern are verified using [multimatch v4.0.0].
+Pattern are verified using [multimatch v4.0.0][npm-multimatch-used].
 
-[multimatch v4.0.0]: https://www.npmjs.com/package/multimatch/v/4.0.0
+[npm-multimatch-used]: https://www.npmjs.com/package/multimatch/v/4.0.0
 
 Default value ([source](https://github.com/sounisi5011/metalsmith-directory-metadata/blob/v1.0.0/src/options.ts#L17)):
 
@@ -143,9 +143,9 @@ To enable, use the following command when running your build script:
 DEBUG=metalsmith-directory-metadata,metalsmith-directory-metadata:* node my-website-build.js
 ```
 
-For more details, please check the description of [debug v4.1.1].
+For more details, please check the description of [debug v4.1.1][npm-debug-used].
 
-[debug v4.1.1]: https://www.npmjs.com/package/debug/v/4.1.1
+[npm-debug-used]: https://www.npmjs.com/package/debug/v/4.1.1
 
 ## Tests
 
