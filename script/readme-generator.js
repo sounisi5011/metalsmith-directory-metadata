@@ -51,6 +51,15 @@ async function main(args) {
   const view = {
     pkg: require(path.resolve(cwd, 'package.json')),
     pkgLock: require(path.resolve(cwd, 'package-lock.json')),
+    encURL: () => (text, render) =>
+      encodeURIComponent(render(text.trim())).replace(
+        /[!'()*]/g,
+        char =>
+          `%${char
+            .charCodeAt(0)
+            .toString(16)
+            .toUpperCase()}`,
+      ),
   };
   const output = Mustache.render(templateCode, view);
   const outputPath = path.resolve(path.dirname(templatePath), 'README.md');

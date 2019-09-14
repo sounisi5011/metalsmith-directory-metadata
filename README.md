@@ -1,8 +1,8 @@
 # metalsmith-directory-metadata
 
 [![npm package](https://img.shields.io/npm/v/metalsmith-directory-metadata.svg)][npm]
-[![GitHub License](https://img.shields.io/github/license/sounisi5011/metalsmith-directory-metadata.svg)][github-license]
-![](https://img.shields.io/node/v/metalsmith-directory-metadata.svg)
+[![License: MIT](https://img.shields.io/static/v1?label=license&message=MIT&color=green)][github-license]
+![Supported Node version: >=8.3.0](https://img.shields.io/static/v1?label=node&message=%3E%3D8.3.0&color=brightgreen)
 ![Type Definitions: TypeScript](https://img.shields.io/npm/types/metalsmith-directory-metadata.svg)
 [![bundle size](https://badgen.net/bundlephobia/min/metalsmith-directory-metadata@1.0.0)](https://bundlephobia.com/result?p=metalsmith-directory-metadata@1.0.0)
 [![Dependencies Status](https://david-dm.org/sounisi5011/metalsmith-directory-metadata/status.svg)](https://david-dm.org/sounisi5011/metalsmith-directory-metadata)
@@ -10,7 +10,7 @@
 [![Maintainability Status](https://api.codeclimate.com/v1/badges/4dcb19ba4651279775d5/maintainability)](https://codeclimate.com/github/sounisi5011/metalsmith-directory-metadata/maintainability)
 
 [npm]: https://www.npmjs.com/package/metalsmith-directory-metadata
-[github-license]: https://github.com/sounisi5011/metalsmith-directory-metadata/blob/master/LICENSE
+[github-license]: https://github.com/sounisi5011/metalsmith-directory-metadata/blob/v1.0.0/LICENSE
 
 Defines default metadata for files in a directory.
 
