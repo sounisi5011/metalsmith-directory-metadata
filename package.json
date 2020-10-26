@@ -85,7 +85,7 @@
     "debug": "4.1.1",
     "deep-freeze-strict": "1.1.1",
     "js-yaml": "3.13.1",
-    "multimatch": "4.0.0"
+    "multimatch": "5.0.0"
   },
   "devDependencies": {
     "@sounisi5011/check-peer-deps": "github:sounisi5011/check-peer-deps",
