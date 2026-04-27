@@ -82,7 +82,7 @@
   },
   "dependencies": {
     "@types/metalsmith": "2.3.0",
-    "debug": "4.1.1",
+    "debug": "4.3.1",
     "deep-freeze-strict": "1.1.1",
     "js-yaml": "3.13.1",
     "multimatch": "4.0.0"
